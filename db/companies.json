@@ -1,84 +1,83 @@
-{
-  "companies": [
-    {
-      "companyName": "PixelCraft",
-      "industry": "Web Development",
-      "companySize": "50-100",
-      "headquarters": "San Francisco, USA",
-      "foundedYear": 2015,
-      "remoteFriendly": true
-    },
-    {
-      "companyName": "DataForge",
-      "industry": "Data Engineering",
-      "companySize": "200-500",
-      "headquarters": "Austin, USA",
-      "foundedYear": 2010,
-      "remoteFriendly": true
-    },
-    {
-      "companyName": "BrightLabs",
-      "industry": "Design & UX",
-      "companySize": "20-50",
-      "headquarters": "Toronto, Canada",
-      "foundedYear": 2018,
-      "remoteFriendly": false
-    },
-    {
-      "companyName": "CloudNine",
-      "industry": "Cloud Infrastructure",
-      "companySize": "500+",
-      "headquarters": "Berlin, Germany",
-      "foundedYear": 2008,
-      "remoteFriendly": true
-    },
-    {
-      "companyName": "AppWave",
-      "industry": "Mobile Applications",
-      "companySize": "100-200",
-      "headquarters": "London, UK",
-      "foundedYear": 2016,
-      "remoteFriendly": true
-    },
-    {
-      "companyName": "Insightify",
-      "industry": "Analytics",
-      "companySize": "50-100",
-      "headquarters": "Chicago, USA",
-      "foundedYear": 2014,
-      "remoteFriendly": true
-    },
-    {
-      "companyName": "VisionTech",
-      "industry": "Product Development",
-      "companySize": "200-500",
-      "headquarters": "San Jose, USA",
-      "foundedYear": 2011,
-      "remoteFriendly": false
-    },
-    {
-      "companyName": "NeuroLabs",
-      "industry": "Artificial Intelligence",
-      "companySize": "20-50",
-      "headquarters": "Paris, France",
-      "foundedYear": 2019,
-      "remoteFriendly": true
-    },
-    {
-      "companyName": "PlayForge",
-      "industry": "Game Development",
-      "companySize": "100-200",
-      "headquarters": "Tokyo, Japan",
-      "foundedYear": 2013,
-      "remoteFriendly": false
-    },
-    {
-      "companyName": "SkyCompute",
-      "industry": "Cloud Solutions",
-      "companySize": "500+",
-      "headquarters": "Denver, USA",
-      "foundedYear": 2005,
-      "remoteFriendly": true
-    }
-  ]
-}
+[
+  {
+    "companyName": "PixelCraft",
+    "industry": "Web Development",
+    "companySize": "50-100",
+    "headquarters": "San Francisco, USA",
+    "foundedYear": 2015,
+    "remoteFriendly": true
+  },
+  {
+    "companyName": "DataForge",
+    "industry": "Data Engineering",
+    "companySize": "200-500",
+    "headquarters": "Austin, USA",
+    "foundedYear": 2010,
+    "remoteFriendly": true
+  },
+  {
+    "companyName": "BrightLabs",
+    "industry": "Design & UX",
+    "companySize": "20-50",
+    "headquarters": "Toronto, Canada",
+    "foundedYear": 2018,
+    "remoteFriendly": false
+  },
+  {
+    "companyName": "CloudNine",
+    "industry": "Cloud Infrastructure",
+    "companySize": "500+",
+    "headquarters": "Berlin, Germany",
+    "foundedYear": 2008,
+    "remoteFriendly": true
+  },
+  {
+    "companyName": "AppWave",
+    "industry": "Mobile Applications",
+    "companySize": "100-200",
+    "headquarters": "London, UK",
+    "foundedYear": 2016,
+    "remoteFriendly": true
+  },
+  {
+    "companyName": "Insightify",
+    "industry": "Analytics",
+    "companySize": "50-100",
+    "headquarters": "Chicago, USA",
+    "foundedYear": 2014,
+    "remoteFriendly": true
+  },
+  {
+    "companyName": "VisionTech",
+    "industry": "Product Development",
+    "companySize": "200-500",
+    "headquarters": "San Jose, USA",
+    "foundedYear": 2011,
+    "remoteFriendly": false
+  },
+  {
+    "companyName": "NeuroLabs",
+    "industry": "Artificial Intelligence",
+    "companySize": "20-50",
+    "headquarters": "Paris, France",
+    "foundedYear": 2019,
+    "remoteFriendly": true
+  },
+  {
+    "companyName": "PlayForge",
+    "industry": "Game Development",
+    "companySize": "100-200",
+    "headquarters": "Tokyo, Japan",
+    "foundedYear": 2013,
+    "remoteFriendly": false
+  },
+  {
+    "companyName": "SkyCompute",
+    "industry": "Cloud Solutions",
+    "companySize": "500+",
+    "headquarters": "Denver, USA",
+    "foundedYear": 2005,
+    "remoteFriendly": true
+  }
+]
+
