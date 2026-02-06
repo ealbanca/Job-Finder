@@ -3,7 +3,7 @@ module.exports = mongoose => {
         "job",
         mongoose.Schema(
             {
-                temple_id: Number,
+                job_id: Number,
                 jobTitle: String,
                 companyName: String,
                 description: String,
