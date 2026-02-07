@@ -5,12 +5,22 @@
     "description": "Job Finder API",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://job-finder-0jxj.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api-docs": {
       "get": {
         "description": "",
@@ -21,25 +31,75 @@
         }
       }
     },
-    "/job/": {
+    "/jobs/": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "jobTitle": {
+                  "example": "any"
+                },
+                "companyName": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "yearSalary": {
+                  "example": "any"
+                },
+                "country": {
+                  "example": "any"
+                },
+                "state": {
+                  "example": "any"
+                },
+                "city": {
+                  "example": "any"
+                },
+                "remote": {
+                  "example": "any"
+                },
+                "employmentType": {
+                  "example": "any"
+                },
+                "experienceLevel": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/job/{job_id}": {
+    "/jobs/{job_id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -57,25 +117,63 @@
         }
       }
     },
-    "/company/": {
+    "/companies/": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "companyName": {
+                  "example": "any"
+                },
+                "industry": {
+                  "example": "any"
+                },
+                "companySize": {
+                  "example": "any"
+                },
+                "headquarters": {
+                  "example": "any"
+                },
+                "foundedYear": {
+                  "example": "any"
+                },
+                "remoteFriendly": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/company/{company_id}": {
+    "/companies/{company_id}": {
       "get": {
         "description": "",
         "parameters": [
