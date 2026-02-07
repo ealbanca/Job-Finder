@@ -23,7 +23,7 @@ exports.getCompanyById = (req, res) =>{
 
 // Create a new company
 exports.createCompany = async (req, res) => {
-    try {
+
         const company = {
             companyName: req.body.companyName,
             industry: req.body.industry,
@@ -33,9 +33,10 @@ exports.createCompany = async (req, res) => {
             remoteFriendly: req.body.remoteFriendly
         };
         const response = await mongodb.getDb().db().collection('companies').insertOne(company);
-        }
-        catch (err) {
-            res.status(500).json({ message: err.message });
+        if (response.acknowledged) {
+            res.status(201).json(response);
+        } else {
+            res.status(500).json(response.error || 'Some error occurred while creating the company.');
         }
 }
 
