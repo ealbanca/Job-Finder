@@ -1,5 +1,5 @@
 const db = require('../models');
-const mongodb = require('../db/mongodb');
+const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const Job = db.Job;
 

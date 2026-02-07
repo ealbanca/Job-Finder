@@ -1,8 +1,13 @@
-const routes = require('express').Router();
-const job = require('./job');
+const express = require('express');
+const routes = express.Router();
+
+// Home route - welcome message
+routes.get('/', (req, res) => {
+	res.send('Welcome to the Contacts API!');
+});
 
 routes.use('/', require('./swagger')); // Swagger documentation route
-routes.use('/job', job);
-routes.use('/company', require('./company'));
+routes.use('/jobs', require('./job'));
+routes.use('/companies', require('./company'));
 
 module.exports = routes;
