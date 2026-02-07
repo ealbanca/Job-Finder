@@ -1,0 +1,43 @@
+// Local Host: http://localhost:8080
+
+//JOBS database routes
+
+### Get all jobs
+GET http://localhost:8080/jobs
+    
+### create and post a new job
+POST http://localhost:8080/jobs
+Content-Type: application/json
+
+{
+   "jobTitle": "New Job Title",
+    "companyName": "New Company",
+    "description": "New job description",
+    "yearSalary": 100000,
+    "country": "New Country",
+    "state": "New State",
+    "city": "New City",
+    "remote": true,
+    "employmentType": "Full-time",
+    "experienceLevel": "Mid-level"
+}
+
+
+//COMPANIES database routes
+
+### Get all companies
+GET http://localhost:8080/companies
+
+    
+### create and post a new company
+POST http://localhost:8080/companies
+Content-Type: application/json
+
+{
+    "companyName": "New Company",
+    "industry": "New Industry",
+    "companySize": "100-500 employees",
+    "headquarters": "New Headquarters",
+    "foundedYear": 2000,
+    "remoteFriendly": true
+}

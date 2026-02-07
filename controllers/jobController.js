@@ -23,7 +23,7 @@ exports.getJobById = (req, res) =>{
 }
 
 // Create a new job
-exports.createJob = (req, res) =>{
+exports.createJob = async (req, res) => {
     const job = {
         jobTitle: req.body.jobTitle,
         companyName: req.body.companyName,
@@ -36,13 +36,17 @@ exports.createJob = (req, res) =>{
         employmentType: req.body.employmentType,
         experienceLevel: req.body.experienceLevel
     };
-    const response = mongodb.getDb().db().collection('jobs').insertOne(job);
-    if (response.acknowledged) {
-        res.status(201).json(response);
-    } else {
-        res.status(500).json(response.error || 'Some error occurred while creating the job.');
+    try {
+        const response = await mongodb.getDb().db().collection('jobs').insertOne(job);
+        if (response.acknowledged) {
+            res.status(201).json(response);
+        } else {
+            res.status(500).json({ message: 'Some error occurred while creating the job.' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
-}
+};
 
 // Update a job by ID
 exports.updateJobById = (req, res) =>{
