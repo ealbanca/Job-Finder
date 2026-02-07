@@ -5,8 +5,8 @@ const doc = {
     title: 'Job Finder API',
     description: 'Job Finder API',
   },
-  host: 'localhost:8080',
-  schemes: ['http'],
+  host: 'https://job-finder-0jxj.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
