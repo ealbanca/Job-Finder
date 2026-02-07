@@ -1,8 +1,20 @@
 const db =require('../models');
+const mongodb = require('../db/mongodb');
+const ObjectId = require('mongodb').ObjectId;
 const Company = db.Company;
 
 // Get all companies
-exports.getAllCompanies = (req, res) =>{
+exports.getAllCompanies = async (req, res) => {
+    try {
+        const result = await mongodb.getDb().db().collection('companies').find();
+        result.toArray().then((lists) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(lists);
+        });
+    }
+        catch (err) {
+            res.status(500).json({ message: err.message });
+        }
 }
 
 // Get a company by ID
@@ -10,7 +22,21 @@ exports.getCompanyById = (req, res) =>{
 }
 
 // Create a new company
-exports.createCompany = (req, res) =>{
+exports.createCompany = async (req, res) => {
+    try {
+        const company = {
+            companyName: req.body.companyName,
+            industry: req.body.industry,
+            companySize: req.body.companySize,
+            headquarters: req.body.headquarters,
+            foundedYear: req.body.foundedYear,
+            remoteFriendly: req.body.remoteFriendly
+        };
+        const response = await mongodb.getDb().db().collection('companies').insertOne(company);
+        }
+        catch (err) {
+            res.status(500).json({ message: err.message });
+        }
 }
 
 // Update a company by ID
