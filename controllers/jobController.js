@@ -19,6 +19,16 @@ exports.getAllJobs = async (req, res) => {
 
 // Get a job by ID
 exports.getJobById = (req, res) =>{
+    const jobId = req.params.id;
+    try {
+        const result = mongodb.getDb().db().collection('jobs').find({ _id: new ObjectId(jobId) });
+        result.toArray().then((lists) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(lists[0]);
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
     
 }
 
