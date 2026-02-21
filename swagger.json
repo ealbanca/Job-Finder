@@ -5,7 +5,7 @@
     "description": "Job Finder API",
     "version": "1.0.0"
   },
-  "host": "https://job-finder-0jxj.onrender.com",
+  "host": "job-finder-0jxj.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
