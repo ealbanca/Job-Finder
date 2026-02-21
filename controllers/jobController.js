@@ -58,6 +58,29 @@ exports.createJob = async (req, res) => {
 };
 
 // Update a job by ID
-exports.updateJobById = (req, res) =>{
+exports.updateJobById = async (req, res) => {
+    const jobId = new ObjectId(req.params.id);
+    const updatedJob = {
+        jobTitle: req.body.jobTitle,
+        companyName: req.body.companyName,
+        description: req.body.description,
+        yearSalary: req.body.yearSalary,
+        country: req.body.country,
+        state: req.body.state,
+        city: req.body.city,
+        remote: req.body.remote,
+        employmentType: req.body.employmentType,
+        experienceLevel: req.body.experienceLevel
+    };
+    try {
+        const response = await mongodb.getDb().db().collection('jobs').replaceOne({ _id: jobId }, updatedJob);
+        if (response.modifiedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json({ message: 'Some error occurred while updating the job.' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 }
 
