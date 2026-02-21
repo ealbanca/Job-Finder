@@ -121,6 +121,80 @@
             "description": "Internal Server Error"
           }
         }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "jobTitle": {
+                  "example": "any"
+                },
+                "companyName": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "yearSalary": {
+                  "example": "any"
+                },
+                "country": {
+                  "example": "any"
+                },
+                "state": {
+                  "example": "any"
+                },
+                "city": {
+                  "example": "any"
+                },
+                "remote": {
+                  "example": "any"
+                },
+                "employmentType": {
+                  "example": "any"
+                },
+                "experienceLevel": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
       }
     },
     "/companies/": {
