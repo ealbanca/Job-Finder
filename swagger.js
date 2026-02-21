@@ -5,7 +5,7 @@ const doc = {
     title: 'Job Finder API',
     description: 'Job Finder API',
   },
-  host: 'https://job-finder-0jxj.onrender.com',
+  host: 'job-finder-0jxj.onrender.com',
   schemes: ['https'],
 };
 
