@@ -99,7 +99,7 @@
         }
       }
     },
-    "/jobs/{job_id}": {
+    "/jobs/{id}": {
       "get": {
         "description": "",
         "produces": [
@@ -107,7 +107,7 @@
         ],
         "parameters": [
           {
-            "name": "job_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"

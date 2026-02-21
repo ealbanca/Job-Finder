@@ -3,7 +3,7 @@ const routes = express.Router();
 
 // Home route - welcome message
 routes.get('/', (req, res) => {
-	res.send('Welcome to the Contacts API!');
+	res.send('Welcome to the Jobs API!');
 });
 
 routes.use('/', require('./swagger')); // Swagger documentation route

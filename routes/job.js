@@ -1,9 +1,11 @@
 const routes = require('express').Router();
-const jobs = require('../controllers/jobController');
 
-routes.get('/', jobs.getAllJobs);
-routes.get('/:job_id', jobs.getJobById);
+//import jobController functions and use them as route handlers
+const jobController = require('../controllers/jobController');
 
-routes.post('/', jobs.createJob);
+routes.get('/', jobController.getAllJobs);
+routes.get('/:id', jobController.getJobById);
+
+routes.post('/', jobController .createJob);
 
 module.exports = routes;
