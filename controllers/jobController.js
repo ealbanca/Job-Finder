@@ -18,18 +18,19 @@ exports.getAllJobs = async (req, res) => {
 }
 
 // Get a job by ID
-exports.getJobById = (req, res) =>{
+exports.getJobById = async (req, res) => {
     const jobId = req.params.id;
     try {
-        const result = mongodb.getDb().db().collection('jobs').find({ _id: new ObjectId(jobId) });
-        result.toArray().then((lists) => {
+        const job = await mongodb.getDb().db().collection('jobs').findOne({ _id: new ObjectId(jobId) });
+        if (job) {
             res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(lists[0]);
-        });
+            res.status(200).json(job);
+        } else {
+            res.status(404).json({ message: 'Job not found' });
+        }
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
-    
 }
 
 // Create a new job
