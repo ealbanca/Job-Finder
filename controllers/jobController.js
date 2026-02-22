@@ -90,7 +90,7 @@ exports.deleteJobById = async (req, res) => {
     try {
         const response = await mongodb.getDb().db().collection('jobs').deleteOne({ _id: jobId });
         if (response.deletedCount > 0) {
-            res.status(204).send();
+            res.status(200).send();
         } else {
             res.status(500).json({ message: 'Some error occurred while deleting the job.' });
         }
