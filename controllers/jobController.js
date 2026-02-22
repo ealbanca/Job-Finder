@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const Job = db.Job;
 
 // Get all jobs
-exports.getAllJobs = async (req, res) => {
+exports.getAllJobs = async (req, res, next) => {
     try {
         const result = await mongodb.getDb().db().collection('jobs').find();
         result.toArray().then((lists) => {
@@ -12,13 +12,12 @@ exports.getAllJobs = async (req, res) => {
             res.status(200).json(lists);
         });
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        next(err);
     }
-    
 }
 
 // Get a job by ID
-exports.getJobById = async (req, res) => {
+exports.getJobById = async (req, res, next) => {
     const jobId = new ObjectId(req.params.id);
     try {
         const result = await mongodb.getDb().db().collection('jobs').find({ _id: jobId });
@@ -27,12 +26,12 @@ exports.getJobById = async (req, res) => {
             res.status(200).json(lists[0]);
         });
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        next(err);
     }
 };
 
 // Create a new job
-exports.createJob = async (req, res) => {
+exports.createJob = async (req, res, next) => {
     const job = {
         jobTitle: req.body.jobTitle,
         companyName: req.body.companyName,
@@ -50,15 +49,17 @@ exports.createJob = async (req, res) => {
         if (response.acknowledged) {
             res.status(201).json(response);
         } else {
-            res.status(500).json({ message: 'Some error occurred while creating the job.' });
+            const error = new Error('Some error occurred while creating the job.');
+            error.status = 500;
+            next(error);
         }
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        next(err);
     }
 };
 
 // Update a job by ID
-exports.updateJobById = async (req, res) => {
+exports.updateJobById = async (req, res, next) => {
     const jobId = new ObjectId(req.params.id);
     const updatedJob = {
         jobTitle: req.body.jobTitle,
@@ -77,25 +78,29 @@ exports.updateJobById = async (req, res) => {
         if (response.modifiedCount > 0) {
             res.status(204).send();
         } else {
-            res.status(500).json({ message: 'Some error occurred while updating the job.' });
+            const error = new Error('Some error occurred while updating the job.');
+            error.status = 500;
+            next(error);
         }
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        next(err);
     }
 }
 
 // Delete a job by ID
-exports.deleteJobById = async (req, res) => {
+exports.deleteJobById = async (req, res, next) => {
     const jobId = new ObjectId(req.params.id);
     try {
         const response = await mongodb.getDb().db().collection('jobs').deleteOne({ _id: jobId });
         if (response.deletedCount > 0) {
             res.status(200).send();
         } else {
-            res.status(500).json({ message: 'Some error occurred while deleting the job.' });
+            const error = new Error('Some error occurred while deleting the job.');
+            error.status = 500;
+            next(error);
         }
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        next(err);
     }
 }
 
