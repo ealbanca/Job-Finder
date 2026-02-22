@@ -1,6 +1,5 @@
 // Validation error handler for express-validator
 const {body, param, validationResult} = require('express-validator');
-const { get } = require('mongoose');	
 
 // Middleware to handle validation errors
 const handleValidationErrors = (req, res, next) => {
