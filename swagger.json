@@ -77,7 +77,7 @@
                   "example": "any"
                 },
                 "yearSalary": {
-                  "example": "any"
+                  "example": "100000"
                 },
                 "country": {
                   "example": "any"
@@ -89,7 +89,7 @@
                   "example": "any"
                 },
                 "remote": {
-                  "example": "any"
+                  "example": "true"
                 },
                 "employmentType": {
                   "example": "any"
@@ -161,7 +161,7 @@
                   "example": "any"
                 },
                 "yearSalary": {
-                  "example": "any"
+                  "example": "100000"
                 },
                 "country": {
                   "example": "any"
@@ -173,7 +173,7 @@
                   "example": "any"
                 },
                 "remote": {
-                  "example": "any"
+                  "example": "true"
                 },
                 "employmentType": {
                   "example": "any"
@@ -248,7 +248,7 @@
                   "example": "any"
                 },
                 "companySize": {
-                  "example": "any"
+                  "example": "1000"
                 },
                 "headquarters": {
                   "example": "any"
