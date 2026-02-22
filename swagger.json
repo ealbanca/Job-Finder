@@ -13,7 +13,7 @@
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "description": "This is the root endpoint of the Job Finder API. It provides a welcome message and basic information about the API.",
         "responses": {
           "200": {
             "description": "OK"
@@ -23,7 +23,7 @@
     },
     "/api-docs": {
       "get": {
-        "description": "",
+        "description": "This endpoint provides the API documentation in Swagger format.",
         "responses": {
           "default": {
             "description": ""
@@ -33,7 +33,7 @@
     },
     "/jobs/": {
       "get": {
-        "description": "",
+        "description": " This endpoint retrieves a list of all job postings available in the Job Finder API. It returns an array of job objects, each containing details such as job title, company name, description, salary, location, and other relevant information.",
         "produces": [
           "application/json"
         ],
@@ -47,7 +47,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "This endpoint creates a new job posting in the Job Finder API. It accepts a job object in the request body and returns the created job object with a unique ID.",
         "parameters": [
           {
             "name": "body",
@@ -101,7 +101,7 @@
     },
     "/jobs/{id}": {
       "get": {
-        "description": "",
+        "description": " This endpoint retrieves a specific job posting by its unique ID from the Job Finder API. It returns the job object that matches the provided ID, including details such as job title, company name, description, salary, location, and other relevant information.",
         "produces": [
           "application/json"
         ],
@@ -123,7 +123,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "This endpoint updates an existing job posting by its unique ID in the Job Finder API. It accepts a job object in the request body and returns the updated job object.",
         "parameters": [
           {
             "name": "id",
@@ -181,7 +181,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "This endpoint deletes a specific job posting by its unique ID from the Job Finder API.",
         "parameters": [
           {
             "name": "id",
@@ -202,7 +202,7 @@
     },
     "/companies/": {
       "get": {
-        "description": "",
+        "description": " This endpoint retrieves a list of all companies available in the Job Finder API. It returns an array of company objects, each containing details such as company name, industry, company size, headquarters location, founded year, and remote-friendly status.",
         "produces": [
           "application/json"
         ],
@@ -216,7 +216,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "This endpoint creates a new company in the Job Finder API. It accepts a company object in the request body and returns the created company object with a unique ID.",
         "parameters": [
           {
             "name": "body",
@@ -258,7 +258,7 @@
     },
     "/companies/{id}": {
       "get": {
-        "description": "",
+        "description": "This endpoint retrieves a specific company by its unique ID from the Job Finder API. It returns the company object that matches the provided ID, including details such as company name, industry, company size, headquarters location, founded year, and remote-friendly status.",
         "produces": [
           "application/json"
         ],
@@ -280,7 +280,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "This endpoint updates an existing company by its unique ID in the Job Finder API. It accepts a company object in the request body and returns the updated company object.",
         "parameters": [
           {
             "name": "id",
@@ -326,7 +326,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "This endpoint deletes a specific company by its unique ID from the Job Finder API.",
         "parameters": [
           {
             "name": "id",
