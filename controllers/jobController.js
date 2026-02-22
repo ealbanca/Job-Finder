@@ -84,3 +84,18 @@ exports.updateJobById = async (req, res) => {
     }
 }
 
+// Delete a job by ID
+exports.deleteJobById = async (req, res) => {
+    const jobId = new ObjectId(req.params.id);
+    try {
+        const response = await mongodb.getDb().db().collection('jobs').deleteOne({ _id: jobId });
+        if (response.deletedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json({ message: 'Some error occurred while deleting the job.' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}
+
