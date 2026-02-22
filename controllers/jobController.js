@@ -104,3 +104,11 @@ exports.deleteJobById = async (req, res, next) => {
     }
 }
 
+module.exports = {
+    getAllJobs,
+    getJobById, 
+    createJob,
+    updateJobById,
+    deleteJobById
+};
+

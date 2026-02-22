@@ -95,3 +95,12 @@ exports.deleteCompanyById = async (req, res, next) => {
         next(err);
     }
 }
+
+
+module.exports = {
+    getAllCompanies,
+    getCompanyById,
+    createCompany,
+    updateCompanyById,
+    deleteCompanyById
+};
