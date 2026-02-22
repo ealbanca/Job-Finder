@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const Company = db.Company;
 
 // Get all companies
-exports.getAllCompanies = async (req, res, next) => {
+getAllCompanies = async (req, res, next) => {
     try {
         const result = await mongodb.getDb().db().collection('companies').find();
         result.toArray().then((lists) => {
@@ -17,7 +17,7 @@ exports.getAllCompanies = async (req, res, next) => {
 }
 
 // Get a company by ID
-exports.getCompanyById = async (req, res, next) =>{
+getCompanyById = async (req, res, next) =>{
     const companyId = new ObjectId(req.params.id);
     try {
         const result = await mongodb.getDb().db().collection('companies').find({ _id: companyId });
@@ -31,7 +31,7 @@ exports.getCompanyById = async (req, res, next) =>{
 }
 
 // Create a new company
-exports.createCompany = async (req, res, next) => {
+createCompany = async (req, res, next) => {
     const company = {
         companyName: req.body.companyName,
         industry: req.body.industry,
@@ -55,7 +55,7 @@ exports.createCompany = async (req, res, next) => {
 }
 
 // Update a company by ID
-exports.updateCompanyById = async (req, res, next) =>{
+updateCompanyById = async (req, res, next) =>{
     const companyId = new ObjectId(req.params.id);
     const updatedCompany = {
         companyName: req.body.companyName,
@@ -80,7 +80,7 @@ exports.updateCompanyById = async (req, res, next) =>{
 }
 
 // Delete a company by ID
-exports.deleteCompanyById = async (req, res, next) => {
+deleteCompanyById = async (req, res, next) => {
     const companyId = new ObjectId(req.params.id);
     try {
         const response = await mongodb.getDb().db().collection('companies').deleteOne({ _id: companyId });

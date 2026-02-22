@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const Job = db.Job;
 
 // Get all jobs
-exports.getAllJobs = async (req, res, next) => {
+getAllJobs = async (req, res, next) => {
     try {
         const result = await mongodb.getDb().db().collection('jobs').find();
         result.toArray().then((lists) => {
@@ -17,7 +17,7 @@ exports.getAllJobs = async (req, res, next) => {
 }
 
 // Get a job by ID
-exports.getJobById = async (req, res, next) => {
+getJobById = async (req, res, next) => {
     const jobId = new ObjectId(req.params.id);
     try {
         const result = await mongodb.getDb().db().collection('jobs').find({ _id: jobId });
@@ -31,7 +31,7 @@ exports.getJobById = async (req, res, next) => {
 };
 
 // Create a new job
-exports.createJob = async (req, res, next) => {
+createJob = async (req, res, next) => {
     const job = {
         jobTitle: req.body.jobTitle,
         companyName: req.body.companyName,
@@ -59,7 +59,7 @@ exports.createJob = async (req, res, next) => {
 };
 
 // Update a job by ID
-exports.updateJobById = async (req, res, next) => {
+updateJobById = async (req, res, next) => {
     const jobId = new ObjectId(req.params.id);
     const updatedJob = {
         jobTitle: req.body.jobTitle,
@@ -88,7 +88,7 @@ exports.updateJobById = async (req, res, next) => {
 }
 
 // Delete a job by ID
-exports.deleteJobById = async (req, res, next) => {
+deleteJobById = async (req, res, next) => {
     const jobId = new ObjectId(req.params.id);
     try {
         const response = await mongodb.getDb().db().collection('jobs').deleteOne({ _id: jobId });
