@@ -55,6 +55,9 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/', require('./routes'));
+app.use('/auth', require('./routes/auth'));
+app.use('/jobs', require('./routes/job'));
+app.use('/companies', require('./routes/company'));
 
 
 mongodb.initDb((err, mongodb) => {

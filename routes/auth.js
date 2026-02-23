@@ -1,5 +1,5 @@
 const express = require('express');
-const passport = require('../config/passport');
+const passport = require('passport');
 const routes = express.Router();
 
 
