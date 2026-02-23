@@ -7,7 +7,7 @@ const passport = require('passport');
 const session = require('express-session');
 const dotenv = require('dotenv');
 
-const mongodb = require('./db/connect');
+const { connectDb } = require('./db/connect');
 // Got this code from https://www.npmjs.com/package/swagger-ui-express
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -60,7 +60,7 @@ app.use('/jobs', require('./routes/job'));
 app.use('/companies', require('./routes/company'));
 
 
-mongodb.initDb((err, mongodb) => {
+connectDb((err) => {
     if (err) {
         console.log(err);
     } else {
