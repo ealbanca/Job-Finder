@@ -1,9 +1,15 @@
 const express = require('express');
 const routes = express.Router();
 
-// Home route - welcome message
+
+//Login/landing page route
 routes.get('/', (req, res) => {
-	res.send('Welcome to the Jobs API!');
+	res.send('Login');
+});
+
+//Dashborad route
+routes.get('/dashboard', (req, res) => {
+	res.send('Dashboard');
 });
 
 routes.use('/', require('./swagger')); // Swagger documentation route

@@ -1,7 +1,7 @@
 const express = require('express');
 const BodyParser = require('body-parser');
 const morgan = require('morgan');
-const exphbs = require('express-handlebars');
+const { engine } = require('express-handlebars');
 
 const mongodb = require('./db/connect');
 // Got this code from https://www.npmjs.com/package/swagger-ui-express
@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 //Handlebars
-app.engine ('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+app.engine('.hbs', engine({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', '.hbs');
 
 // parse application/json
