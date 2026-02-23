@@ -11,7 +11,9 @@ const swaggerDocument = require('./swagger.json');
 const port = process.env.PORT || 8080;
 const app = express();
 
-
+//Handlebars
+app.engine ('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+app.set('view engine', '.hbs');
 
 // parse application/json
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)) // Swagger UI route, got it from https://www.npmjs.com/package/swagger-ui-express
