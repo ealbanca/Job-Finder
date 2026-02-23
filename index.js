@@ -3,11 +3,20 @@ const express = require('express');
 const BodyParser = require('body-parser');
 const morgan = require('morgan');
 const {engine}  = require('express-handlebars');
+const passport = require('passport');
+const session = require('express-session');
+const dotenv = require('dotenv');
 
 const mongodb = require('./db/connect');
 // Got this code from https://www.npmjs.com/package/swagger-ui-express
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+
+//load config
+dotenv.config({path: './.env'})
+
+// Passport config
+require('./config/passport')(passport);
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -16,6 +25,17 @@ const app = express();
 app.engine('.hbs', engine({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', './views');
+
+//Sessions, got it from https://www.npmjs.com/package/express-session
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+}))
+
+//Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Set up static folder
 app.use(express.static(path.join(__dirname, 'public')));

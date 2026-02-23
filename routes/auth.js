@@ -1,0 +1,14 @@
+const express = require('express');
+const passport = require('../config/passport');
+const routes = express.Router();
+
+
+//Authnticate with Google route
+routes.get('/google', passport.authenticate('google', { scope: ['profile'] }));
+
+//Google auth callback route. If authentication fails, redirect to the login page. If successful, redirect to the dashboard.
+routes.get('/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
+    res.redirect('/dashboard');
+});
+
+module.exports = routes;
