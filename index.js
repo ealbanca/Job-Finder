@@ -1,13 +1,16 @@
 const express = require('express');
-const mongodb = require('./db/connect');
 const BodyParser = require('body-parser');
+const morgan = require('morgan');
+const exphbs = require('express-handlebars');
 
+const mongodb = require('./db/connect');
 // Got this code from https://www.npmjs.com/package/swagger-ui-express
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
 const port = process.env.PORT || 8080;
 const app = express();
+
 
 
 // parse application/json
