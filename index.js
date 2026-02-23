@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const BodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -15,6 +16,9 @@ const app = express();
 app.engine('.hbs', engine({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', './views');
+
+//Set up static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // parse application/json
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)) // Swagger UI route, got it from https://www.npmjs.com/package/swagger-ui-express

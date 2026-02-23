@@ -4,7 +4,7 @@ const routes = express.Router();
 
 //Login/landing page route
 routes.get('/', (req, res) => {
-	res.render('login');
+	res.render('login', { layout: 'login' });
 });
 
 //Dashborad route
