@@ -4,9 +4,9 @@ const User = require('../models/user');
 
 module.exports = function(passport) {
     passport.use(new GoogleStartegy({
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: '/auth/google/callback'
+           clientID: process.env.GOOGLE_CLIENT_ID,
+           clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+           callbackURL: process.env.GOOGLE_CALLBACK_URL || 'http://localhost:3000/auth/google/callback'
     },
     async (accessToken, refreshToken, profile, done) => {
         const newUser = {
