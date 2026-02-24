@@ -13,8 +13,10 @@ routes.get('/google/callback', passport.authenticate('google', { failureRedirect
 
 //Logout route. Logs the user out and redirects to the homepage.
 routes.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
+    req.logout(function(err) {
+        if (err) { return res.status(500).send('Logout failed'); }
+        res.redirect('/');
+    });
 });
 
 module.exports = routes;
