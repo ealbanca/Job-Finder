@@ -10,9 +10,11 @@ routes.get('/', ensureGuest, (req, res) => {
 
 //Dashborad route
 routes.get('/dashboard', ensureAuth, (req, res) => {
-	res.render('dashboard');
+	res.render('dashboard', {
+		name: req.user.firstName,
+	});
 });
-
+	
 // Swagger documentation route
 routes.use('/', require('./swagger')); 
 routes.use('/jobs', ensureAuth, require('./job'));

@@ -3,8 +3,9 @@ const express = require('express');
 const BodyParser = require('body-parser');
 const morgan = require('morgan');
 const {engine}  = require('express-handlebars');
-const passport = require('passport');
 const session = require('express-session');
+const MongoStore = require('connect-mongo').default;
+const passport = require('passport');
 const dotenv = require('dotenv');
 
 const { connectDb } = require('./db/connect');
@@ -15,8 +16,9 @@ const swaggerDocument = require('./swagger.json');
 //load config
 dotenv.config({path: './.env'})
 
-// Passport config
+const db = require('./models');
 require('./config/passport')(passport);
+const mongoose = db.mongoose;
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -28,9 +30,12 @@ app.set('views', './views');
 
 //Sessions, got it from https://www.npmjs.com/package/express-session
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false,
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({
+        mongoUrl: process.env.MONGODB_URI || db.url
+    })
 }))
 
 //Passport Middleware
