@@ -17,7 +17,7 @@ routes.get('/dashboard', ensureAuth, (req, res) => {
 	
 // Swagger documentation route
 routes.use('/', require('./swagger')); 
-routes.use('/jobs', ensureAuth, require('./job'));
-routes.use('/companies', ensureAuth, require('./company'));
+routes.use('/jobs', require('./job'));
+routes.use('/companies', require('./company'));
 
 module.exports = routes;
